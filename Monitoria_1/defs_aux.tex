@@ -1,0 +1,246 @@
+% !TEX root = monitoria.tex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[letterpaper, includeheadfoot, top=0cm]{geometry}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{mathtools}  
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{pdfpages}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{mathrsfs}
+\usepackage{float}
+\usepackage{fullpage}
+%TikZ
+\usepackage{pgf,tikz}
+\usepackage{stmaryrd}
+\usetikzlibrary{arrows}
+\usetikzlibrary[patterns]
+\renewcommand{\labelenumi}{\normalsize\bfseries Q\arabic{enumi}.}
+\renewcommand{\labelenumii}{\normalsize\bfseries (\alph{enumii})}
+\renewcommand{\labelenumiii}{\normalsize\bfseries \roman{enumiii})}
+
+% Heading
+\newcommand{\enc}[3]{\Large \textbf{#1}\\ \normalsize #2\\ #3}
+
+% Indentation
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1ex}
+
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Aut}{Aut}
+\newcommand{\MT}{\mathord{\text{MT}}}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\pr}{pr}
+\newcommand{\Tl}{\mathord{\text{T}}_{\ell}}
+\newcommand{\Vl}{\mathord{\text{V}}_{\ell}}
+
+% Flechas y parentesis
+%=========================================================
+\newcommand{\ssi}{\Longleftrightarrow}
+\newcommand{\imp}{\implies}
+\newcommand{\pmi}{\Longleftarrow}
+\newcommand{\contra}{\rightarrow \leftarrow}
+\newcommand{\matriz}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\hooklongrightarrow}{\lhook\joinrel\longrightarrow}
+\newcommand{\hooklongleftarrow}{\longleftarrow\joinrel\rhook}
+\newcommand{\embeds}{\hookrightarrow}
+\newcommand{\Embeds}{\hooklongrightarrow}
+\newcommand{\inv}{\text{inv}}
+\newcommand{\To}{\longrightarrow}
+%=========================================================
+
+% Conjuntos usuales
+%=========================================================
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\Zl}{\Z_{\ell}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\Cp}{\C_{p}}
+\newcommand{\Cl}{\C_{\ell}}
+\newcommand{\Q}{\mathbf{Q}}
+\newcommand{\Qbar}{\overline{\Q}}
+\newcommand{\Qp}{\Q_{p}}
+\newcommand{\Qpbar}{\overline{\Qp}}
+\newcommand{\Ql}{\Q_{\ell}}
+\newcommand{\Qlbar}{\overline{\Ql}}
+\newcommand{\R}{\mathbf{R}}
+\renewcommand{\S}{\mathbb{S}}
+\newcommand{\K}{\mathbf{K}}
+\newcommand{\F}{\mathbf{F}}
+\renewcommand{\P}{\mathbf{P}}
+\newcommand{\T}{\mathbf{T}}
+\newcommand{\Disc}{\mathbf{D}}
+\newcommand{\D}{\mathbf{D}}
+\newcommand{\vacio}{\varnothing}
+\newcommand{\Rel}{\mathcal{R}}
+\newcommand{\gen}[1]{\left \langle #1  \right \rangle }
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mfrak}[1]{\mathfrak{#1}}
+%=========================================================
+
+% Derivadas
+%=========================================================
+\newcommand{\der}[2]{\dfrac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\ider}[2]{\dfrac{d #1}{d #2}}
+\newcommand{\iider}[2]{\dfrac{d^2 #1}{d #2^2}}
+\newcommand{\ipartial}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\iipartial}[2]{\dfrac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\ijpartial}[3]{\dfrac{\partial^2 #1}{\partial #2 \partial #3}}
+\newcommand{\dd}{\mathrm{d}}
+%=========================================================
+
+% Letras
+%=========================================================
+\newcommand{\f}{\varphi}
+\newcommand{\e}{\varepsilon}
+%=========================================================
+
+%Probabilidades
+%=========================================================
+\newcommand{\prob}{\mathrm{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Esp}{\mathbb{E}}
+%=========================================================
+
+%Miscelanea
+%=========================================================
+\newcommand{\Def}{\overset{\text{(def)}}{=}}
+\newcommand{\nconj}[1]{\left \{  1, \ldots, #1   \right \}}
+\newcommand{\Vector}[3]{ \Par{#1_{#3}, \ldots, #1 _{#2}} }
+\newcommand{\ds}[1]{\displaystyle{#1}}
+\newcommand{\normal}{\trianglelefteq}
+\newcommand{\limite}{\lim\limits_{n\to \infty}}
+\newcommand{\suma}[2]{\ds{\sum\limits_{#1}^{#2}}}
+\newcommand{\Comp}[1]{\mathscr{O}\Par{#1}}
+\newcommand{\rfrac}[2]{{}^{#1}\!/_{#2}}
+\newcommand{\cod}[1]{\texttt{#1}}
+\newcommand{\Id}{\text{Id}}
+\newcommand{\units}[1]{#1^{\times}}
+%=========================================================
+
+% Algebra
+%=========================================================
+\newcommand{\module}{\text{-Mod}}
+\newcommand{\frakprime}{\mathfrak{p}}
+\newcommand{\Prime}{\mathfrak{P}}
+\newcommand{\torPoint}[2]{\leftidx{_{#2}}{#1}{}}
+%=========================================================
+
+%Categories
+%=========================================================
+\newcommand{\catmod}[1]{\mathbf{#1}-\mathbf{Mod}}
+\newcommand{\DiagGrp}[1][k]{\Par{\text{Diag. groups}/#1}}
+\newcommand{\Tori}[1][k]{\Par{\text{Tori}/#1}}
+\newcommand{\ZSigma}[1][k]{\Z\bra{\Sigma_{#1}}}
+
+\DeclareFontFamily{OT1}{pzc}{}
+\DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.2] pzcmi7t}{}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\newcommand{\categ}{\mathpzc}
+%=========================================================
+
+%Geometria
+%=========================================================
+\newcommand{\Cinf}{\mathcal{C}^{\infty}}
+\newcommand{\Cohom}[2]{H^{#1}\Par{#2}}
+\newcommand{\formas}[2]{\Omega_{#2}^{#1}}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\indice}[3]{#1_{#2_1}, \ldots, #1_{#2_{#3}}}
+\newcommand{\seq}[2]{#1, \ldots, #2}
+\newcommand{\sheaf}{\mathscr{S}}
+\newcommand{\strshf}{\mathscr{O}}
+\newcommand{\Hsing}[2]{H^{#1}_{\text{sing}}\Par{#2}}
+\newcommand{\HdR}[2]{H^{#1}_{\text{dR}}\Par{#2}}
+\newcommand{\Hetale}[2]{H^{#1}_{\text{ét}}\Par{#2}}
+\newcommand{\Hladic}[2]{H^{#1}_{\ell}\Par{#2}}
+%=========================================================
+
+%=========================================================
+
+%=============== ELLIPTIC CURVES =========================
+\newcommand{\E}[1]{E\Par{#1}}
+\newcommand{\Etor}[1]{E_{\text{tors}}\Par{#1}}
+%=========================================================
+
+
+
+%============THEOREM STYLE=============
+% \theoremstyle{definition}
+
+% %Definicion
+\newtheorem{defi}{Definição}
+%%\numberwithin{definition}{chapter}
+
+% %Teorema 
+% \newtheorem{thm}{Theorem}
+% %%\numberwithin{theorem}{chapter}
+
+% %Lema
+\newtheorem{lemma}{Lema}
+\newtheorem*{lemma*}{Lema}
+% %%\numberwithin{lema}{chapter}
+
+% %Corolario
+\newtheorem{cor}{Corolário}
+% %%\numberwithin{cor}{chapter}
+
+% %Proposici�n
+\newtheorem{prop}{Proposição}
+% %%\numberwithin{prop}{chapter}
+
+% %Propiedad
+% \newtheorem*{prt}{Property}
+% %%\numberwithin{prop}{chapter}
+
+% %Problema
+% \newtheorem*{prb}{Problem}
+% %%\numberwithin{prop}{chapter}
+
+% %Observacion
+% \newtheorem*{rem}{Remark}
+% %%\numberwithin{obs}{chapter}
+
+% \newtheorem*{notation}{Notation}
+
+% \newtheorem*{ex}{Exercise}
+% \newtheorem{*example}{Example}
+% % \numberwithin{ex}{chapter}
+
+
+% \renewcommand{\qedsymbol}{\rule{0.7em}{0.7em}}
+% \renewenvironment{proof}{{\bfseries \noindent Proof} }{ \qed \\}
+%=====================================
+
+% El comando \matriz funciona mejor que este.
+%==================VECTOR COLUMNA=========================
+% \newcount\colveccount 
+% \newcommand*\colvec[1]{ 
+%     \global\colveccount#1
+%     \begin{pmatrix} 
+%     \colvecnext 
+% }
+% \def\colvecnext#1{
+%     #1
+%     \global\advance\colveccount-1 
+%     \ifnum\colveccount>0 
+%         \\
+%         \expandafter\colvecnext 
+%     \else 
+%         \end{pmatrix}
+%     \fi
+% }
+%=========================================================
+
+
